@@ -44,7 +44,7 @@ breaks down as soon as we add another color. How can we create these elements
 _dynamically_ instead?
 
 Luckily for us, JSX is still _just JavaScript_, so our usual techniques for
-working with arrays in regular JavaScript still apply!
+working with arrays in regular JavaScript or TypeScript still apply!
 
 Our goal is to take an array of _strings_ and transform that into a new array of
 _JSX elements_. What array method would be appropriate here? Think on it, then
@@ -180,8 +180,11 @@ component to display each color. In the example below, we'd need to use the
 `key` prop on the `<ColorItem>` components, **not** the `<li>`:
 
 ```jsx
+// ColorItem Props interface 
+interface Props { color: string }
+
 // ColorItem component
-function ColorItem(props) {
+function ColorItem(props: Props) {
   return <li style={{ color: props.color }}>{props.color}</li>;
 }
 
@@ -218,6 +221,6 @@ some **unique value** for each element of the array. Array indexes should
 **not** be used as keys.
 
 ## Resources
-
+- [MDN: Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
 - [Lists and Keys](https://reactjs.org/docs/lists-and-keys.html)
 - [Why Using Index as a Key is Probably a Bad Idea](https://medium.com/@vraa/why-using-an-index-as-key-in-react-is-probably-a-bad-idea-7543de68b17c)
